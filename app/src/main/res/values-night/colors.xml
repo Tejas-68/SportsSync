@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Colors -->
+    <color name="primary_blue">#64B5F6</color>
+    <color name="primary_blue_dark">#42A5F5</color>
+    <color name="primary_blue_light">#90CAF9</color>
+    
+    <!-- Background Colors -->
+    <color name="background_light">#121212</color>
+    <color name="background_dark">#000000</color>
+    <color name="surface_light">#1E1E1E</color>
+    <color name="surface_dark">#2D2D2D</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary_light">#FFFFFF</color>
+    <color name="text_primary_dark">#E0E0E0</color>
+    <color name="text_secondary_light">#B3FFFFFF</color>
+    <color name="text_secondary_dark">#80FFFFFF</color>
+    
+    <!-- Card Colors -->
+    <color name="card_light">#2D2D2D</color>
+    <color name="card_dark">#1E1E1E</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#66BB6A</color>
+    <color name="warning">#FFB74D</color>
+    <color name="error">#EF5350</color>
+    <color name="info">#64B5F6</color>
+</resources>

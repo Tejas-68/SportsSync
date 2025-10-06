@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Settings Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/circle_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Settings"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etNewLoginCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New Login Code"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etNewQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New QR Code"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnUpdateCodes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Codes" />
+
+            <Button
+                android:id="@+id/btnNewRegisterRequests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Register Requests"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <!-- Logout Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/circle_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:backgroundTint="@android:color/holo_red_dark" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137741508581",
+    "project_id": "sportssync-41e2d",
+    "storage_bucket": "sportssync-41e2d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137741508581:android:28aad8a9d4815a5626990c",
+        "android_client_info": {
+          "package_name": "com.project.sportssync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6JftczbLdNOcpGHUM951aqHCKjOyuEJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

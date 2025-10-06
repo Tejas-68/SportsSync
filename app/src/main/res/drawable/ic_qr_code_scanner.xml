@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="45dp"
+    android:height="45dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#FFFFFF">
+
+    <!-- Top-left square -->
+    <path android:fillColor="#FF000000" android:pathData="M3,3h6v6H3z"/>
+    <path android:fillColor="#FFFFFFFF" android:pathData="M5,5h2v2H5z"/>
+
+    <!-- Top-right square -->
+    <path android:fillColor="#FF000000" android:pathData="M15,3h6v6h-6z"/>
+    <path android:fillColor="#FFFFFFFF" android:pathData="M17,5h2v2h-2z"/>
+
+    <!-- Bottom-left square -->
+    <path android:fillColor="#FF000000" android:pathData="M3,15h6v6H3z"/>
+    <path android:fillColor="#FFFFFFFF" android:pathData="M5,17h2v2H5z"/>
+
+    <!-- Random QR-like blocks in center -->
+    <path android:fillColor="#FF000000" android:pathData="M11,7h2v2h-2z"/>
+    <path android:fillColor="#FF000000" android:pathData="M11,11h2v2h-2z"/>
+    <path android:fillColor="#FF000000" android:pathData="M15,11h2v2h-2z"/>
+    <path android:fillColor="#FF000000" android:pathData="M13,15h2v2h-2z"/>
+    <path android:fillColor="#FF000000" android:pathData="M17,15h2v2h-2z"/>
+</vector>
