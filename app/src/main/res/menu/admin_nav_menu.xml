@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/dashboard" />
+    <item
+        android:id="@+id/nav_manage_sports"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/manage_sports" />
+    <item
+        android:id="@+id/nav_export_attendance"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="Export Attendance" />
+    <item
+        android:id="@+id/nav_change_qr"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/change_qr" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/logout" />
+</menu>
