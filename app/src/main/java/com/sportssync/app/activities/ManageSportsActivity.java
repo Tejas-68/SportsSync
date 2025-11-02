@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.sportssync.app.activities.utils.LoadingDialog;
 
 public class ManageSportsActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class ManageSportsActivity extends AppCompatActivity {
     private SportManageAdapter adapter;
     private List<Sport> sportsList;
     private FirebaseManager firebaseManager;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class ManageSportsActivity extends AppCompatActivity {
 
         firebaseManager = FirebaseManager.getInstance();
         sportsList = new ArrayList<>();
+        loadingDialog = new LoadingDialog(this);
 
         initViews();
         setupToolbar();
@@ -104,6 +107,8 @@ public class ManageSportsActivity extends AppCompatActivity {
                 return;
             }
 
+            loadingDialog.show("Adding sport...");
+
             String sportId = firebaseManager.getDb().collection("sports").document().getId();
             Sport sport = new Sport(sportId, sportName);
 
@@ -117,11 +122,13 @@ public class ManageSportsActivity extends AppCompatActivity {
             firebaseManager.getDb().collection("sports").document(sportId)
                     .set(sportData)
                     .addOnSuccessListener(aVoid -> {
+                        loadingDialog.dismiss();
                         Toast.makeText(this, "Sport added successfully", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         loadSports();
                     })
                     .addOnFailureListener(e -> {
+                        loadingDialog.dismiss();
                         Toast.makeText(this, "Failed to add sport", Toast.LENGTH_SHORT).show();
                     });
         });
@@ -149,6 +156,8 @@ public class ManageSportsActivity extends AppCompatActivity {
                 return;
             }
 
+            loadingDialog.show("Adding equipment...");
+
             int quantity = Integer.parseInt(quantityStr);
             String equipmentId = "eq_" + System.currentTimeMillis();
             Equipment equipment = new Equipment(equipmentId, equipmentName, quantity);
@@ -165,11 +174,13 @@ public class ManageSportsActivity extends AppCompatActivity {
             firebaseManager.getDb().collection("sports").document(sport.getSportId())
                     .set(sportData)
                     .addOnSuccessListener(aVoid -> {
+                        loadingDialog.dismiss();
                         Toast.makeText(this, "Equipment added successfully", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         loadSports();
                     })
                     .addOnFailureListener(e -> {
+                        loadingDialog.dismiss();
                         Toast.makeText(this, "Failed to add equipment", Toast.LENGTH_SHORT).show();
                     });
         });

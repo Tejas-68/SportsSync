@@ -11,8 +11,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.sportssync.app.R;
 import java.util.HashMap;
 import java.util.Map;
-
 import com.sportssync.app.activities.utils.FirebaseManager;
+import com.sportssync.app.activities.utils.LoadingDialog;
 import com.sportssync.app.activities.utils.PreferenceManager;
 import com.sportssync.app.activities.utils.ValidationHelper;
 
@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText etAdminPassword;
     private PreferenceManager preferenceManager;
     private FirebaseManager firebaseManager;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
         preferenceManager = new PreferenceManager(this);
         firebaseManager = FirebaseManager.getInstance();
+        loadingDialog = new LoadingDialog(this);
 
         initViews();
         setupTabLayout();
@@ -97,54 +99,73 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.btnStudentLogin).setEnabled(false);
+        loadingDialog.show("Logging in...");
 
-        firebaseManager.getAuth().signInAnonymously()
-                .addOnSuccessListener(authResult -> {
-                    String uid = authResult.getUser().getUid();
+        firebaseManager.getDb().collection("users")
+                .whereEqualTo("uucmsId", uucms)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        DocumentSnapshot existingUser = queryDocumentSnapshots.getDocuments().get(0);
+                        String existingName = existingUser.getString("name");
 
-                    firebaseManager.getDb().collection("users").document(uid)
-                            .get()
-                            .addOnSuccessListener(documentSnapshot -> {
-                                if (documentSnapshot.exists()) {
-                                    loginExistingStudent(documentSnapshot);
-                                } else {
-                                    createNewStudent(uid, uucms, name);
-                                }
-                            })
-                            .addOnFailureListener(e -> {
-                                findViewById(R.id.btnStudentLogin).setEnabled(true);
-                                Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
-                            });
+                        if (existingName != null && existingName.equalsIgnoreCase(name)) {
+                            loginExistingStudent(existingUser);
+                        } else {
+                            loadingDialog.dismiss();
+                            findViewById(R.id.btnStudentLogin).setEnabled(true);
+                            Toast.makeText(this, "This UUCMS ID is registered with a different name", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        createNewStudentAccount(uucms, name);
+                    }
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     findViewById(R.id.btnStudentLogin).setEnabled(true);
                     Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
                 });
     }
 
-    private void createNewStudent(String uid, String uucms, String name) {
-        Map<String, Object> userData = new HashMap<>();
-        userData.put("uid", uid);
-        userData.put("uucmsId", uucms);
-        userData.put("name", name);
-        userData.put("userType", "student");
-        userData.put("isRegistered", false);
-        userData.put("registeredAt", 0);
+    private void createNewStudentAccount(String uucms, String name) {
+        loadingDialog.updateMessage("Creating account...");
 
-        firebaseManager.getDb().collection("users").document(uid)
-                .set(userData)
-                .addOnSuccessListener(aVoid -> {
-                    preferenceManager.saveUserData(uid, "student", name, uucms);
-                    preferenceManager.setRegistered(false);
-                    navigateToStudentDashboard();
+        firebaseManager.getAuth().signInAnonymously()
+                .addOnSuccessListener(authResult -> {
+                    String uid = authResult.getUser().getUid();
+
+                    Map<String, Object> userData = new HashMap<>();
+                    userData.put("uid", uid);
+                    userData.put("uucmsId", uucms);
+                    userData.put("name", name);
+                    userData.put("userType", "student");
+                    userData.put("isRegistered", false);
+                    userData.put("registeredAt", 0);
+
+                    firebaseManager.getDb().collection("users").document(uid)
+                            .set(userData)
+                            .addOnSuccessListener(aVoid -> {
+                                loadingDialog.dismiss();
+                                preferenceManager.saveUserData(uid, "student", name, uucms);
+                                preferenceManager.setRegistered(false);
+                                navigateToStudentDashboard();
+                            })
+                            .addOnFailureListener(e -> {
+                                loadingDialog.dismiss();
+                                findViewById(R.id.btnStudentLogin).setEnabled(true);
+                                Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
+                            });
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     findViewById(R.id.btnStudentLogin).setEnabled(true);
                     Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
                 });
     }
 
     private void loginExistingStudent(DocumentSnapshot document) {
+        loadingDialog.updateMessage("Loading data...");
+
         String uid = document.getString("uid");
         String name = document.getString("name");
         String uucms = document.getString("uucmsId");
@@ -153,6 +174,8 @@ public class LoginActivity extends AppCompatActivity {
 
         preferenceManager.saveUserData(uid, "student", name, uucms);
         preferenceManager.setRegistered(isRegistered);
+
+        loadingDialog.dismiss();
         navigateToStudentDashboard();
     }
 
@@ -171,12 +194,14 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.btnAdminLogin).setEnabled(false);
+        loadingDialog.show("Logging in...");
 
         firebaseManager.getDb().collection("admins")
                 .whereEqualTo("name", name)
                 .whereEqualTo("password", password)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
+                    loadingDialog.dismiss();
                     if (!queryDocumentSnapshots.isEmpty()) {
                         DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
                         String uid = document.getId();
@@ -188,6 +213,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     findViewById(R.id.btnAdminLogin).setEnabled(true);
                     Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show();
                 });

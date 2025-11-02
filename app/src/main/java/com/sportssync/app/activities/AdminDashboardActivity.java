@@ -32,6 +32,7 @@ import com.sportssync.app.activities.models.ReturnRequest;
 import com.sportssync.app.activities.models.Sport;
 import com.sportssync.app.activities.utils.ExcelExporter;
 import com.sportssync.app.activities.utils.FirebaseManager;
+import com.sportssync.app.activities.utils.LoadingDialog;
 import com.sportssync.app.activities.utils.NotificationScheduler;
 import com.sportssync.app.activities.utils.PreferenceManager;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
     private boolean isLoadingReturns = false;
     private String selectedPeriod = "today";
     private int developerClickCount = 0;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         firebaseManager = FirebaseManager.getInstance();
         attendanceList = new ArrayList<>();
         returnList = new ArrayList<>();
+        loadingDialog = new LoadingDialog(this);
 
         initViews();
         setupBottomNavigation();
@@ -585,6 +588,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
     }
 
     private void exportAttendance() {
+        loadingDialog.show("Preparing export...");
+
         long startTime = getStartTimeForPeriod(selectedPeriod);
 
         firebaseManager.getDb().collection("attendanceRequests")
@@ -599,14 +604,18 @@ public class AdminDashboardActivity extends AppCompatActivity {
                     }
 
                     if (attendanceList.isEmpty()) {
+                        loadingDialog.dismiss();
                         Toast.makeText(this, "No attendance records found", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
+                    loadingDialog.updateMessage("Generating Excel file...");
                     ExcelExporter exporter = new ExcelExporter(this);
                     exporter.exportAttendance(attendanceList, selectedPeriod);
+                    loadingDialog.dismiss();
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, "Failed to fetch attendance", Toast.LENGTH_SHORT).show();
                 });
     }

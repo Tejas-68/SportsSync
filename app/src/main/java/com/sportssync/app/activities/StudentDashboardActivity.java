@@ -28,6 +28,7 @@ import com.sportssync.app.activities.models.Equipment;
 import com.sportssync.app.activities.models.ReturnRequest;
 import com.sportssync.app.activities.models.Sport;
 import com.sportssync.app.activities.utils.FirebaseManager;
+import com.sportssync.app.activities.utils.LoadingDialog;
 import com.sportssync.app.activities.utils.NotificationHelper;
 import com.sportssync.app.activities.utils.NotificationScheduler;
 import com.sportssync.app.activities.utils.PreferenceManager;
@@ -36,7 +37,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class StudentDashboardActivity extends AppCompatActivity {
 
     private static final int CAMERA_PERMISSION_REQUEST = 100;
@@ -55,6 +55,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
     private BorrowedEquipmentAdapter borrowedAdapter;
     private List<BorrowRecord> borrowedList;
     private ActivityResultLauncher<Intent> qrScannerLauncher;
+    private LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         notificationHelper = new NotificationHelper(this);
         realtimeUpdateService = new RealtimeUpdateService();
         borrowedList = new ArrayList<>();
+        loadingDialog = new LoadingDialog(this);
 
         initViews();
         setupBottomNavigation();
@@ -251,6 +253,8 @@ public class StudentDashboardActivity extends AppCompatActivity {
     }
 
     private void registerStudent() {
+        loadingDialog.show("Registering...");
+
         String userId = preferenceManager.getUserId();
         Map<String, Object> updates = new HashMap<>();
         updates.put("isRegistered", true);
@@ -259,11 +263,13 @@ public class StudentDashboardActivity extends AppCompatActivity {
         firebaseManager.getDb().collection("users").document(userId)
                 .update(updates)
                 .addOnSuccessListener(aVoid -> {
+                    loadingDialog.dismiss();
                     preferenceManager.setRegistered(true);
                     Toast.makeText(this, R.string.registration_success, Toast.LENGTH_SHORT).show();
                     showSportSelectionDialog();
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
                 });
     }
@@ -330,6 +336,8 @@ public class StudentDashboardActivity extends AppCompatActivity {
     }
 
     private void borrowEquipment(Sport sport, Equipment equipment, int quantity) {
+        loadingDialog.show("Borrowing equipment...");
+
         String recordId = firebaseManager.getDb().collection("borrowRecords").document().getId();
 
         long returnBy = System.currentTimeMillis() + (17 * 60 * 60 * 1000);
@@ -368,11 +376,13 @@ public class StudentDashboardActivity extends AppCompatActivity {
                     NotificationScheduler scheduler = new NotificationScheduler(this);
                     scheduler.scheduleReturnReminder(recordId, equipment.getEquipmentName(), returnBy);
 
+                    loadingDialog.dismiss();
                     Toast.makeText(this, R.string.equipment_borrowed, Toast.LENGTH_SHORT).show();
                     notificationHelper.showEquipmentBorrowed(equipment.getEquipmentName());
                     loadBorrowedEquipment();
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, "Failed to borrow equipment", Toast.LENGTH_SHORT).show();
                 });
     }
@@ -426,6 +436,8 @@ public class StudentDashboardActivity extends AppCompatActivity {
     }
 
     private void handleReturnRequest(BorrowRecord record) {
+        loadingDialog.show("Sending return request...");
+
         String requestId = firebaseManager.getDb().collection("returnRequests").document().getId();
 
         ReturnRequest returnRequest = new ReturnRequest(
@@ -451,14 +463,18 @@ public class StudentDashboardActivity extends AppCompatActivity {
         firebaseManager.getDb().collection("returnRequests").document(requestId)
                 .set(requestData)
                 .addOnSuccessListener(aVoid -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, R.string.return_request_sent, Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, "Failed to send return request", Toast.LENGTH_SHORT).show();
                 });
     }
 
     private void submitAttendanceRequest() {
+        loadingDialog.show("Submitting attendance...");
+
         String requestId = firebaseManager.getDb().collection("attendanceRequests").document().getId();
 
         Map<String, Object> requestData = new HashMap<>();
@@ -474,9 +490,11 @@ public class StudentDashboardActivity extends AppCompatActivity {
         firebaseManager.getDb().collection("attendanceRequests").document(requestId)
                 .set(requestData)
                 .addOnSuccessListener(aVoid -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, R.string.attendance_marked, Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
+                    loadingDialog.dismiss();
                     Toast.makeText(this, "Failed to submit attendance", Toast.LENGTH_SHORT).show();
                 });
     }
