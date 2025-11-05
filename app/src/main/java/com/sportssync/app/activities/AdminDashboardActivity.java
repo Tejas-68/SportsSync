@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +67,20 @@ public class AdminDashboardActivity extends AppCompatActivity {
     private String selectedPeriod = "today";
     private int developerClickCount = 0;
     private LoadingDialog loadingDialog;
+    private LinearLayout attendanceHeader;
+    private LinearLayout attendanceContent;
+    private ImageView ivAttendanceExpand;
+    private TextView tvAttendanceCount;
+    private TextView tvNoAttendance;
+
+    private LinearLayout returnHeader;
+    private LinearLayout returnContent;
+    private ImageView ivReturnExpand;
+    private TextView tvReturnCount;
+    private TextView tvNoReturns;
+
+    private boolean isAttendanceExpanded = false;
+    private boolean isReturnExpanded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +108,21 @@ public class AdminDashboardActivity extends AppCompatActivity {
         swipeRefresh = findViewById(R.id.swipeRefresh);
         tvActiveSportsCount = findViewById(R.id.tvActiveSportsCount);
         tvBorrowedCount = findViewById(R.id.tvBorrowedCount);
+
+        attendanceHeader = findViewById(R.id.attendanceHeader);
+        attendanceContent = findViewById(R.id.attendanceContent);
+        ivAttendanceExpand = findViewById(R.id.ivAttendanceExpand);
+        tvAttendanceCount = findViewById(R.id.tvAttendanceCount);
+        tvNoAttendance = findViewById(R.id.tvNoAttendance);
         rvAttendanceRequests = findViewById(R.id.rvAttendanceRequests);
+
+        returnHeader = findViewById(R.id.returnHeader);
+        returnContent = findViewById(R.id.returnContent);
+        ivReturnExpand = findViewById(R.id.ivReturnExpand);
+        tvReturnCount = findViewById(R.id.tvReturnCount);
+        tvNoReturns = findViewById(R.id.tvNoReturns);
         rvReturnRequests = findViewById(R.id.rvReturnRequests);
+
         btnApproveAll = findViewById(R.id.btnApproveAll);
         btnRejectAll = findViewById(R.id.btnRejectAll);
     }
@@ -207,6 +236,9 @@ public class AdminDashboardActivity extends AppCompatActivity {
     private void setupClickListeners() {
         btnApproveAll.setOnClickListener(v -> approveAllAttendance());
         btnRejectAll.setOnClickListener(v -> rejectAllAttendance());
+
+        attendanceHeader.setOnClickListener(v -> toggleAttendanceExpansion());
+        returnHeader.setOnClickListener(v -> toggleReturnExpansion());
     }
 
     private void setupSwipeRefresh() {
@@ -250,11 +282,27 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     attendanceList.clear();
+                    int pendingCount = 0;
+
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         AttendanceRequest request = document.toObject(AttendanceRequest.class);
                         attendanceList.add(request);
+                        if (request.getStatus().equals("pending")) {
+                            pendingCount++;
+                        }
                     }
+
                     attendanceAdapter.notifyDataSetChanged();
+                    tvAttendanceCount.setText(String.valueOf(pendingCount));
+
+                    if (attendanceList.isEmpty()) {
+                        tvNoAttendance.setVisibility(View.VISIBLE);
+                        rvAttendanceRequests.setVisibility(View.GONE);
+                    } else {
+                        tvNoAttendance.setVisibility(View.GONE);
+                        rvAttendanceRequests.setVisibility(View.VISIBLE);
+                    }
+
                     isLoadingAttendance = false;
                 })
                 .addOnFailureListener(e -> {
@@ -272,11 +320,27 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     returnList.clear();
+                    int pendingCount = 0;
+
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         ReturnRequest request = document.toObject(ReturnRequest.class);
                         returnList.add(request);
+                        if (request.getStatus().equals("pending")) {
+                            pendingCount++;
+                        }
                     }
+
                     returnAdapter.notifyDataSetChanged();
+                    tvReturnCount.setText(String.valueOf(pendingCount));
+
+                    if (returnList.isEmpty()) {
+                        tvNoReturns.setVisibility(View.VISIBLE);
+                        rvReturnRequests.setVisibility(View.GONE);
+                    } else {
+                        tvNoReturns.setVisibility(View.GONE);
+                        rvReturnRequests.setVisibility(View.VISIBLE);
+                    }
+
                     isLoadingReturns = false;
                 })
                 .addOnFailureListener(e -> {
@@ -657,5 +721,26 @@ public class AdminDashboardActivity extends AppCompatActivity {
         firebaseManager.getAuth().signOut();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+    private void toggleAttendanceExpansion() {
+        isAttendanceExpanded = !isAttendanceExpanded;
+        if (isAttendanceExpanded) {
+            attendanceContent.setVisibility(View.VISIBLE);
+            ivAttendanceExpand.setRotation(180);
+        } else {
+            attendanceContent.setVisibility(View.GONE);
+            ivAttendanceExpand.setRotation(0);
+        }
+    }
+
+    private void toggleReturnExpansion() {
+        isReturnExpanded = !isReturnExpanded;
+        if (isReturnExpanded) {
+            returnContent.setVisibility(View.VISIBLE);
+            ivReturnExpand.setRotation(180);
+        } else {
+            returnContent.setVisibility(View.GONE);
+            ivReturnExpand.setRotation(0);
+        }
     }
 }
