@@ -1,0 +1,172 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">SportsSync</string>
+    
+    <!-- Common UI Text -->
+    <string name="welcome">Welcome</string>
+    <string name="welcome_user">Welcome, %1$s</string>
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="pending">Pending</string>
+    <string name="denied">Denied</string>
+    <string name="approved">Approved</string>
+    <string name="borrowed">Borrowed</string>
+    <string name="returned">Returned</string>
+    
+    <!-- Button Labels - REFINED -->
+    <string name="login">Sign In</string>
+    <string name="logout">Sign Out</string>
+    <string name="submit">Confirm</string>
+    <string name="cancel">Dismiss</string>
+    <string name="delete">Remove</string>
+    <string name="approve">Accept</string>
+    <string name="deny">Decline</string>
+    <string name="ok">Got It</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    
+    <!-- Error Messages -->
+    <string name="error_generic">An error occurred. Please try again.</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_login_failed">Login failed. Please try again.</string>
+    <string name="error_invalid_credentials">Invalid credentials. Please check and try again.</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_insufficient_equipment">Unable to borrow equipment. It may have been borrowed by someone else.</string>
+    <string name="error_equipment_restore">Failed to restore equipment quantities. Please check manually.</string>
+    <string name="error_no_equipment_data">Error: No equipment data found</string>
+    <string name="error_sport_missing">Error: Sport information missing</string>
+    
+    <!-- Success Messages -->
+    <string name="success_login">Login successful</string>
+    <string name="success_attendance_sent">Attendance request sent successfully!</string>
+    <string name="success_equipment_borrowed">Equipment borrowed! Please return %1$s</string>
+    <string name="success_return_approved">Return approved - Equipment being restored</string>
+    <string name="success_exit_logged">Exit logged successfully</string>
+    
+    <!-- Dialog Messages -->
+    <string name="dialog_logout_title">Logout</string>
+    <string name="dialog_logout_message">Are you sure you want to logout?</string>
+    <string name="dialog_delete_sport_title">Delete Sport</string>
+    <string name="dialog_delete_sport_message">Delete %1$s and all its equipment?</string>
+    <string name="dialog_cannot_delete_sport_title">Cannot Delete Sport</string>
+    <string name="dialog_cannot_delete_sport_message">This sport has %1$d active equipment loan(s). Please wait for all equipment to be returned before deleting this sport.</string>
+    
+    <!-- Attendance Status -->
+    <string name="attendance_already_present">You are already marked present today!</string>
+    <string name="attendance_pending_approval">Your attendance request is pending approval</string>
+    <string name="attendance_no_active_session">No active session found for today!</string>
+    
+    <!-- Equipment Messages -->
+    <string name="equipment_select_at_least_one">Please select at least one equipment</string>
+    <string name="equipment_deadline_tomorrow">tomorrow</string>
+    <string name="equipment_deadline_days">in %1$d days</string>
+    
+    <!-- Login Screen - REFINED -->
+    <string name="login_title">SportsSync</string>
+    <string name="login_subtitle">Track. Sync. Excel.</string>
+    <string name="welcome_back">Welcome</string>
+    <string name="sign_in_continue">Enter your credentials</string>
+    <string name="uucms_hint">ID / UUCMS</string>
+    <string name="password_hint">Password</string>
+    <string name="monthly_code_hint">Access Code</string>
+    <string name="monthly_code_helper">Request code from PT</string>
+    <string name="student_login">Student Access</string>
+    <string name="admin_login">Admin Access</string>
+    <string name="footer_text">© 2025 SportsSync · All Rights Reserved</string>
+    
+    <!-- Student Dashboard - REFINED -->
+    <string name="student_dashboard">Dashboard</string>
+    <string name="welcome_student">Hello, </string>
+    <string name="select_sport">Select Sport</string>
+    <string name="quick_actions">Quick Access</string>
+    <string name="scan_qr_entry">Scan Entry QR</string>
+    <string name="exit_session">Exit Session</string>
+    <string name="my_account">Profile</string>
+    <string name="view_profile">View Profile</string>
+    
+    <!-- PT Dashboard -->
+    <string name="pt_dashboard">PT Dashboard</string>
+    <string name="manage_attendance">Manage attendance and student requests</string>
+    <string name="quick_actions_pt">⚡ Quick Actions</string>
+    <string name="generate_qr">📱 QR Code</string>
+    <string name="manage_approvals">✅ Approvals</string>
+    <string name="export_excel">📊 Export to Excel</string>
+    <string name="search_achievements">🔍 Search Achievements</string>
+    <string name="search_hint">Search by UUCMS or Name</string>
+    <string name="filter_requests">📅 Filter Requests</string>
+    <string name="attendance_requests">📋 Attendance Requests</string>
+    <string name="apply">Apply</string>
+    <string name="search">Search</string>
+    
+    <!-- Student Profile -->
+    <string name="my_profile">My Profile</string>
+    <string name="profile_subtitle">View your sports history and achievements</string>
+    <string name="attendance_history">📊 Attendance History</string>
+    <string name="my_achievements">🏆 My Achievements</string>
+    <string name="no_attendance">No attendance records yet</string>
+    <string name="no_achievements">No achievements yet. Keep playing!</string>
+    
+    <!-- QR Generator -->
+    <string name="qr_generator">QR Code Generator</string>
+    <string name="qr_subtitle">Generate QR codes for student entry</string>
+    <string name="scan_this_qr">Scan this QR Code</string>
+    <string name="generate_new_qr">🔄 Generate New QR Code</string>
+    <string name="instructions">📋 Instructions</string>
+    <string name="qr_instructions">1. Display this QR code to students\n2. Students scan the code to request entry\n3. Approve or deny requests from the dashboard\n4. Generate a new code periodically for security</string>
+    
+    <!-- Request Card -->
+    <string name="reject">Reject</string>
+    <string name="sport_label">Sport: </string>
+    
+    <!-- Status -->
+    <string name="status_pending">Pending</string>
+    <string name="status_approved">Approved</string>
+    <string name="status_denied">Denied</string>
+    <string name="status_exited">Exited</string>
+    
+    <!-- Sports -->
+    <string name="football">Football</string>
+    <string name="cricket">Cricket</string>
+    <string name="volleyball">Volleyball</string>
+    <string name="badminton">Badminton</string>
+    <string name="basketball">Basketball</string>
+    
+    <!-- Filter Options -->
+    <string name="filter_all">All</string>
+    <string name="filter_week">This Week</string>
+    <string name="filter_month">This Month</string>
+    
+    <!-- Toast Messages -->
+    <string name="login_success">Login success</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="invalid_code">Invalid code. Ask PT for current code.</string>
+    <string name="account_created">Account created. Waiting PT approval.</string>
+    <string name="not_approved">You are not approved yet. PT will approve soon.</string>
+    <string name="admin_not_found">Admin not found</string>
+    <string name="enter_all_fields">Enter all fields</string>
+    <string name="qr_generated">QR Code Generated</string>
+    <string name="request_sent">Request sent for %s</string>
+    <string name="exit_logged">Exit logged successfully</string>
+    <string name="no_active_session">No active session found!</string>
+    <string name="scan_cancelled">Scan cancelled</string>
+    <string name="filter_applied">Filter applied: %s</string>
+    <string name="achievement_deleted">Achievement deleted</string>
+    <string name="no_achievements_found">No achievements found</string>
+    
+    <!-- Error Messages -->
+    <string name="error_prefix">Error: </string>
+    <string name="failed_prefix">Failed: </string>
+    <string name="load_failed">Load failed: </string>
+    <string name="export_failed">Export failed: </string>
+    <string name="delete_failed">Delete failed: </string>
+    <string name="qr_error">Error generating QR: </string>
+    
+    <!-- Dialogs -->
+    <string name="confirm_delete">Confirm Delete</string>
+    <string name="delete_achievement_msg">Are you sure you want to delete this achievement?</string>
+    
+    <!-- Common -->
+    <string name="or">OR</string>
+    <string name="entry">Entry: </string>
+    <string name="exit">Exit: </string>
+</resources>

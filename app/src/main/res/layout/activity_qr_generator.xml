@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QR GENERATOR - NOTHING UI -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:paddingBottom="48dp">
+
+        <!-- Header - Nothing Minimal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="QR GENERATOR"
+                style="@style/TextAppearance.SportsSync.Nothing.DottedHeader"
+                android:textSize="24sp"
+                android:letterSpacing="0.25"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student entry codes"
+                style="@style/TextAppearance.SportsSync.Body.Secondary"
+                android:textSize="14sp"
+                android:alpha="0.6"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- QR Code Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.SportsSync.CardView.Nothing"
+            android:layout_marginBottom="32dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan this code"
+                    style="@style/TextAppearance.SportsSync.Nothing.MinimalTitle"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="32dp"/>
+
+                <ImageView
+                    android:id="@+id/ivQRCode"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginBottom="32dp"
+                    android:contentDescription="QR Code"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGenerateQR"
+                    style="@style/Widget.SportsSync.Button.Nothing.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generate New Code"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Instructions Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.SportsSync.CardView.Nothing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instructions"
+                    style="@style/TextAppearance.SportsSync.Nothing.MinimalTitle"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. Display code to students\n2. Students scan to request entry\n3. Approve/deny from dashboard\n4. Generate new code periodically"
+                    style="@style/TextAppearance.SportsSync.Body.Secondary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="6dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

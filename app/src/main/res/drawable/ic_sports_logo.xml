@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Gradient background circle -->
+    <path
+        android:fillColor="#667eea"
+        android:pathData="M60,0 A60,60 0 1,1 60,120 A60,60 0 1,1 60,0 Z"/>
+    
+    <!-- Gradient overlay (simulating purple gradient) -->
+    <path
+        android:fillColor="#764ba2"
+        android:fillAlpha="0.6"
+        android:pathData="M60,0 A60,60 0 1,1 60,120 A60,60 0 1,1 60,0 Z"/>
+    
+    <!-- Stylized "S" formed by dynamic curves -->
+    <group
+        android:translateX="60"
+        android:translateY="60">
+        
+        <!-- Upper curve of S (representing movement) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M-15,-25 Q-25,-25 -25,-15 Q-25,-5 -15,-5 L15,-5 Q25,-5 25,5 Q25,15 15,15 L-5,15 L-5,25 L15,25 Q30,25 30,5 Q30,-15 15,-15 L-15,-15 Q-20,-15 -20,-20 Q-20,-25 -15,-25 Z"/>
+        
+        <!-- Sync symbol - circular arrows -->
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="3"
+            android:strokeAlpha="0.9"
+            android:fillColor="#00000000"
+            android:pathData="M-20,0 A20,20 0 1,1 20,0"/>
+        
+        <!-- Arrow heads for sync symbol -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.9"
+            android:pathData="M20,-3 L25,0 L20,3 Z"/>
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillAlpha="0.9"
+            android:pathData="M-20,-3 L-25,0 L-20,3 Z"/>
+    </group>
+    
+    <!-- Subtle accent dots for depth -->
+    <path
+        android:fillColor="#f093fb"
+        android:fillAlpha="0.4"
+        android:pathData="M90,30 A5,5 0 1,1 90,30 Z"/>
+    <path
+        android:fillColor="#f093fb"
+        android:fillAlpha="0.3"
+        android:pathData="M30,90 A4,4 0 1,1 30,90 Z"/>
+</vector>

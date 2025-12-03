@@ -1,0 +1,465 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SportsSync" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        
+        <!-- Text appearances -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        
+        <!-- Ripple -->
+        <item name="colorControlHighlight">@color/ripple</item>
+    </style>
+
+    <style name="Theme.SportsSync" parent="Base.Theme.SportsSync" />
+    
+    <!-- ========================================== -->
+    <!-- TYPOGRAPHY SYSTEM - PREMIUM HIERARCHY     -->
+    <!-- ========================================== -->
+    
+    <!-- Display Text (Hero) - ENHANCED -->
+    <style name="TextAppearance.SportsSync.Display" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textSize">57sp</item>
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.025</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="lineHeight">64sp</item>
+    </style>
+    
+    <!-- Display with Neon Accent -->
+    <style name="TextAppearance.SportsSync.Display.Neon" parent="TextAppearance.SportsSync.Display">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:shadowColor">@color/neon_cyan_glow</item>
+        <item name="android:shadowRadius">8</item>
+    </style>
+    
+    <!-- Headers -->
+    <!-- Header Section - Nothing Minimal -->
+    <style name="TextAppearance.SportsSync.Header" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Header Text (Large) -->
+    <style name="TextAppearance.SportsSync.Header.Large" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.015</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Header Text (Small) -->
+    <style name="TextAppearance.SportsSync.Header.Small" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Subheaders & Titles -->
+    <style name="TextAppearance.SportsSync.Subheader" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Body Text -->
+    <style name="TextAppearance.SportsSync.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Body.Secondary" parent="TextAppearance.SportsSync.Body">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    
+    <!-- Caption & Labels -->
+    <style name="TextAppearance.SportsSync.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    
+    <!-- Nothing-Inspired Dot Matrix Style (ENHANCED) -->
+    <style name="TextAppearance.SportsSync.DotMatrix" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.15</item>
+        <item name="android:textColor">@color/tech_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <!-- Dot Matrix Large - For Headers -->
+    <style name="TextAppearance.SportsSync.DotMatrix.Large" parent="TextAppearance.SportsSync.DotMatrix">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+    
+    <!-- Technical Label - Monospace Small -->
+    <style name="TextAppearance.SportsSync.Technical" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.2</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- BUTTON STYLES - PREMIUM INTERACTIONS      -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Button" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/bg_neon_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Button.Primary" parent="Widget.SportsSync.Button">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="rippleColor">@color/white</item>
+        <item name="elevation">2dp</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Button.Secondary" parent="Widget.SportsSync.Button">
+        <item name="backgroundTint">@color/surface</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="rippleColor">@color/primary</item>
+        <item name="elevation">0dp</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Button.Accent" parent="Widget.SportsSync.Button">
+        <item name="backgroundTint">@color/accent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="rippleColor">@color/black</item>
+        <item name="elevation">4dp</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- CARD STYLES - GLASSMORPHISM & DEPTH       -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="strokeColor">@color/selector_card_stroke</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cardBackgroundColor">@color/glass_background</item>
+    </style>
+    
+    <!-- Premium Glass Card -->
+    <style name="Widget.SportsSync.CardView.Glass" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="strokeColor">@color/selector_card_stroke</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cardBackgroundColor">@color/glass_background</item>
+    </style>
+    
+    <!-- Flat Card (No Elevation) -->
+    <style name="Widget.SportsSync.CardView.Flat" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border_light</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+    
+    <!-- Outlined Card -->
+    <style name="Widget.SportsSync.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- TEXT INPUT STYLES - MODERN & CLEAN        -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+    </style>
+    
+    <style name="Widget.SportsSync.TextInputLayout.Filled" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/gray_50</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- ANALYTICS STYLES - DATA VISUALIZATION     -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Card.Analytics" parent="Widget.SportsSync.CardView.Glass">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="contentPadding">24dp</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Stat.Large" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Stat.Medium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Stat.Label" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- ACHIEVEMENT STYLES - PREMIUM BADGES       -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Card.Achievement" parent="Widget.SportsSync.CardView.Glass">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="contentPadding">20dp</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Badge" parent="">
+        <item name="android:layout_width">72dp</item>
+        <item name="android:layout_height">72dp</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Achievement.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="TextAppearance.SportsSync.Achievement.Description" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- CHART & VISUALIZATION STYLES              -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Chart" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">220dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- DIVIDER STYLES                            -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Divider" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Divider.Strong" parent="Widget.SportsSync.Divider">
+        <item name="android:background">@color/divider_strong</item>
+    </style>
+    
+    <!-- ========================================== -->
+    <!-- CHIP STYLES                               -->
+    <!-- ========================================== -->
+    
+    <style name="Widget.SportsSync.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipCornerRadius">8dp</item>
+        <item name="chipBackgroundColor">@color/gray_100</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="chipStrokeWidth">0dp</item>
+    </style>
+    
+    <style name="Widget.SportsSync.Chip.Outlined" parent="Widget.Material3.Chip.Assist">
+        <item name="chipCornerRadius">8dp</item>
+        <item name="chipBackgroundColor">@color/transparent</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="chipStrokeColor">@color/border</item>
+        <item name="chipStrokeWidth">1.5dp</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- CALENDAR THEME                            -->
+    <!-- ========================================== -->
+
+    <style name="Theme.SportsSync.Calendar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- PROGRESS BAR STYLES                       -->
+    <!-- ========================================== -->
+
+    <style name="Widget.SportsSync.ProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:indeterminateTint">@color/accent</item>
+        <item name="android:progressTint">@color/accent</item>
+        <item name="android:progressBackgroundTint">@color/glass_border</item>
+    </style>
+
+    <style name="Widget.SportsSync.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/accent</item>
+        <item name="android:progressBackgroundTint">@color/glass_border</item>
+        <item name="android:minHeight">8dp</item>
+        <item name="android:maxHeight">8dp</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- NOTHING UI SPECIFIC STYLES               -->
+    <!-- ========================================== -->
+    
+    <!-- Nothing Dotted Header -->
+    <style name="TextAppearance.SportsSync.Nothing.DottedHeader" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.2</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    
+    <!-- Nothing Minimal Title -->
+    <style name="TextAppearance.SportsSync.Nothing.MinimalTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/nothing_dot_font</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <!-- Nothing Card - Ultra Minimal -->
+    <style name="Widget.SportsSync.CardView.Nothing" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/selector_card_stroke</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="contentPadding">24dp</item>
+    </style>
+    
+    <!-- Nothing Button - Outlined -->
+    <style name="Widget.SportsSync.Button.Nothing.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:background">@drawable/bg_nothing_button_outlined</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="strokeColor">@color/selector_card_stroke</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    
+    <!-- Nothing Button - Filled Minimal -->
+    <style name="Widget.SportsSync.Button.Nothing.Filled" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/text_primary</item>
+        <item name="android:textColor">@color/background</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- BOTTOM NAVIGATION STYLES                  -->
+    <!-- ========================================== -->
+
+    <style name="Widget.SportsSync.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/surface</item>
+        <item name="android:backgroundTint">@null</item> <!-- Ensure no tint interferes -->
+        <!-- Add a top border effect via background or elevation shadow -->
+        <item name="itemIconTint">@color/selector_bottom_nav</item>
+        <item name="itemTextColor">@color/selector_bottom_nav</item>
+        <item name="itemRippleColor">@color/accent_transparent</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+</resources>

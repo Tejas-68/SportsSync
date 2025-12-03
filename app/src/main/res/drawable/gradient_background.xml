@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Enhanced Nothing-Inspired Gradient -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base Gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="@color/surface"
+                android:centerColor="@color/surface_variant"
+                android:endColor="@color/surface"
+                android:type="linear" />
+        </shape>
+    </item>
+    
+    <!-- Subtle Neon Accent Overlay -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:startColor="@color/neon_pulse"
+                android:centerColor="#00000000"
+                android:endColor="@color/neon_glow"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

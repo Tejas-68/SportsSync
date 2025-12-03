@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Premium Glass Card with Enhanced Depth - Nothing UI -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Deep Shadow -->
+    <item android:top="6dp" android:left="3dp" android:right="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glass_shadow_strong" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+    
+    <!-- Mid Shadow -->
+    <item android:top="4dp" android:left="2dp" android:right="2dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glass_shadow" />
+            <corners android:radius="25dp" />
+        </shape>
+    </item>
+    
+    <!-- Glass Background with Overlay -->
+    <item android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glass_background_strong" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    
+    <!-- Premium Border -->
+    <item android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <stroke 
+                android:width="1.5dp" 
+                android:color="@color/glass_border" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    
+    <!-- Subtle Inner Glow (Optional Neon Accent) -->
+    <item android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <stroke 
+                android:width="0.5dp" 
+                android:color="@color/glass_border_light" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+</layer-list>

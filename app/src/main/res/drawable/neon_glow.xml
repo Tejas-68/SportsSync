@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer glow -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="@color/neon_glow"
+                android:centerColor="@color/neon_pulse"
+                android:endColor="@color/transparent"
+                android:type="radial"
+                android:gradientRadius="50dp" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    
+    <!-- Inner accent -->
+    <item android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/accent_subtle" />
+            <corners android:radius="14dp" />
+        </shape>
+    </item>
+</layer-list>

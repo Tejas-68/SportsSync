@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Package name is defined in build.gradle.kts as applicationId -->
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SportsSync">
+
+
+        <activity android:name=".EquipmentSelectionActivity"/>
+        <activity android:name=".ManageSportsActivity"/>
+        <activity android:name=".MyBorrowedItemsActivity"/>
+
+
+        <!-- Main Login Activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Student Activities -->
+        <activity 
+            android:name=".StudentDashboardActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".StudentProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".EditProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".StudentAnalyticsActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".AchievementsActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".AttendanceCalendarActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".NotificationsActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- PT/Admin Activities -->
+        <activity 
+            android:name=".PtDashboardActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".PTActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".PtAddAchievementActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".PtManageAchievementsActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".PtSearchAchievementActivity"
+            android:screenOrientation="portrait" />
+        <activity 
+            android:name=".QRGeneratorActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".PortraitCaptureActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- Firebase Cloud Messaging Service -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".ReturnReminderReceiver" />
+
+        <!-- FileProvider for sharing files -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity android:name=".ForgotPasswordActivity" android:exported="false" />
+
+        <!-- Widgets -->
+        <receiver
+            android:name=".AttendanceWidgetProvider"
+            android:exported="true"
+            android:label="Attendance Scanner">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/attendance_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".QuickBorrowWidgetProvider"
+            android:exported="true"
+            android:label="Quick Borrow">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/borrow_widget_info" />
+        </receiver>
+
+        <activity
+            android:name=".QuickBorrowConfigActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".QuickBorrowActionActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false" />
+    </application>
+
+</manifest>

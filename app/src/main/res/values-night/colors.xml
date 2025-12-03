@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ========================================== -->
+    <!-- DARK MODE - NOTHING-INSPIRED AESTHETIC    -->
+    <!-- ========================================== -->
+    
+    <!-- Core Surfaces - Pure Black to Elevated -->
+    <color name="background">#000000</color>
+    <color name="surface">#0D0D0D</color>
+    <color name="surface_variant">#1A1A1A</color>
+    <color name="surface_elevated">#262626</color>
+    <color name="card_background">#1A1A1A</color>
+    
+    <!-- Accent Colors - Neon stays vibrant on dark -->
+    <!-- These work perfectly on dark backgrounds -->
+    <color name="accent_transparent">#3300E5FF</color>
+    <color name="accent_subtle">#1A00FFB3</color>
+    
+    <!-- Text Hierarchy - White to Gray -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_tertiary">#808080</color>
+    <color name="text_hint">#606060</color>
+    <color name="text_disabled">#404040</color>
+    <color name="text_on_primary">#000000</color>
+    <color name="text_on_accent">#000000</color>
+    <color name="text_on_dark">#FFFFFF</color>
+    
+    <!-- Borders & Dividers -->
+    <color name="border">#333333</color>
+    <color name="border_light">#262626</color>
+    <color name="border_strong">#404040</color>
+    <color name="divider">#1A1A1A</color>
+    <color name="divider_strong">#2A2A2A</color>
+    
+    <!-- Glassmorphism - Dark Mode (ENHANCED) -->
+    <color name="glass_background">#33FFFFFF</color> <!-- Enhanced white overlay -->
+    <color name="glass_background_dark">#26FFFFFF</color> <!-- Slightly darker -->
+    <color name="glass_background_strong">#40FFFFFF</color> <!-- NEW: Strong glass -->
+    <color name="glass_border">#40FFFFFF</color> <!-- Enhanced border -->
+    <color name="glass_border_light">#26FFFFFF</color> <!-- Subtle border -->
+    <color name="glass_border_neon">#6600E5FF</color> <!-- NEW: Neon border for dark -->
+    <color name="glass_overlay">#1AFFFFFF</color> <!-- Enhanced overlay -->
+    <color name="glass_shadow">#99000000</color> <!-- Enhanced shadow -->
+    <color name="glass_shadow_strong">#B3000000</color> <!-- NEW: Very strong shadow -->
+    
+    <!-- Functional Colors - Brighter for visibility on dark -->
+    <color name="success">#00E676</color>
+    <color name="success_light">#1B5E3A</color>
+    <color name="success_dark">#00C853</color>
+    <color name="error">#FF5252</color>
+    <color name="error_light">#5E1B1B</color>
+    <color name="error_dark">#D32F2F</color>
+    <color name="warning">#FFD740</color>
+    <color name="warning_light">#5E4F1B</color>
+    <color name="warning_dark">#FFC107</color>
+    <color name="info">#FFFFFF</color>
+    <color name="info_light">#333333</color>
+    
+    <!-- UI Elements -->
+    <color name="ripple">#26FFFFFF</color>
+    <color name="ripple_dark">#33FFFFFF</color>
+    
+    <!-- State Colors -->
+    <color name="state_hover">#1AFFFFFF</color>
+    <color name="state_pressed">#33FFFFFF</color>
+    <color name="state_focused">#1A00FFB3</color>
+    <color name="state_disabled">#262626</color>
+    <color name="state_selected">#1AFFFFFF</color>
+    
+    <!-- Gray Scale (inverted for dark mode) -->
+    <color name="gray_50">#1A1A1A</color>
+    <color name="gray_100">#262626</color>
+    <color name="gray_200">#333333</color>
+    <color name="gray_300">#404040</color>
+    <color name="gray_400">#7A7A7A</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#B0B0B0</color>
+    <color name="gray_700">#CCCCCC</color>
+    <color name="gray_800">#E0E0E0</color>
+    <color name="gray_900">#F5F5F5</color>
+    
+    <!-- Shadows & Overlays - Stronger on dark -->
+    <color name="shadow">#80000000</color>
+    <color name="shadow_subtle">#60000000</color>
+    <color name="shadow_strong">#A0000000</color>
+    <color name="overlay_light">#0DFFFFFF</color>
+    <color name="overlay_medium">#1AFFFFFF</color>
+    <color name="overlay_dark">#CC000000</color>
+    
+    <!-- Shimmer Loading Colors - Dark Mode -->
+    <color name="shimmer_placeholder">#1A1A1A</color>
+    <color name="shimmer_highlight">#333333</color>
+    
+    <!-- Attendance Status Colors - Dark Mode Optimized -->
+    <color name="attendance_present_text">#00FF88</color>
+    <color name="attendance_present_bg">#0A2E1F</color>
+    <color name="attendance_absent_text">#FF6B6B</color>
+    <color name="attendance_absent_bg">#2E0A0F</color>
+    <color name="attendance_pending_text">#FFD24D</color>
+    <color name="attendance_pending_bg">#2E250A</color>
+    <color name="attendance_denied_text">#FF6B6B</color>
+    <color name="attendance_denied_bg">#2E0A0F</color>
+    
+    <!-- Achievement Colors - Adjusted for dark -->
+    <color name="achievement_gold">#FFD700</color>
+    <color name="achievement_gold_glow">#4DFFD700</color>
+    <color name="achievement_silver">#C0C0C0</color>
+    <color name="achievement_silver_glow">#4DC0C0C0</color>
+    <color name="achievement_bronze">#CD7F32</color>
+    <color name="achievement_bronze_glow">#4DCD7F32</color>
+    <color name="achievement_locked">#404040</color>
+    <color name="achievement_unlocked">#00E676</color>
+    <color name="achievement_unlocked_glow">#4D00E676</color>
+    
+    <!-- Chart Colors - Dark Mode -->
+    <color name="chart_primary">#FFFFFF</color>
+    <color name="chart_secondary">#B0B0B0</color>
+    <color name="chart_accent">#00FFB3</color>
+    <color name="chart_grid">#262626</color>
+    <color name="chart_label">#808080</color>
+    <color name="chart_background">#0D0D0D</color>
+    
+    <!-- Analytics Colors - Dark Mode -->
+    <color name="analytics_present">#00E676</color>
+    <color name="analytics_absent">#FF5252</color>
+    <color name="analytics_pending">#FFD740</color>
+    <color name="analytics_streak">#FFFFFF</color>
+    <color name="analytics_highlight">#00FFB3</color>
+    
+    <!-- Neon Glow Effects - Enhanced visibility on dark (ENHANCED) -->
+    <color name="neon_cyan_glow">#6600E5FF</color> <!-- NEW: Stronger glow for dark -->
+    <color name="neon_green_glow">#6600FFB3</color> <!-- NEW: Stronger glow for dark -->
+    <color name="neon_glow">#3300FFB3</color> <!-- Enhanced -->
+    <color name="neon_pulse">#2600E5FF</color> <!-- Enhanced -->
+    <color name="neon_intense">#66FF00</color> <!-- NEW: Intense green -->
+    
+    <!-- Dot Matrix Technical Colors (DARK MODE) -->
+    <color name="tech_primary">#00FF41</color> <!-- Matrix green - brighter -->
+    <color name="tech_secondary">#39FF14</color> <!-- Neon green -->
+    <color name="tech_glow">#6600FF41</color> <!-- Enhanced matrix glow -->
+    
+    <!-- Legacy/Compat -->
+    <color name="gray_light">#262626</color>
+    <color name="gray_medium">#9E9E9E</color>
+    <color name="gray_dark">#CCCCCC</color>
+    
+    <!-- Primary colors (for dark theme, white/light becomes primary) -->
+    <color name="primary_light">#FFFFFF</color>
+    <color name="primary_variant">#F5F5F5</color>
+    
+    <!-- Secondary -->
+    <color name="secondary_light">#B0B0B0</color>
+    
+    <!-- Additional UI Elements -->
+    <color name="state_hover_strong">#26FFFFFF</color>
+    <color name="state_pressed_strong">#40FFFFFF</color>
+    
+    <!-- Sport Specific Colors -->
+    <color name="sport_basketball">#FFFFFF</color>
+    
+    <!-- Chip Colors - Dark Mode -->
+    <color name="chip_background">#262626</color>
+    <color name="chip_background_selected">#333333</color>
+    <color name="chip_stroke">#404040</color>
+    
+    <!-- Bottom Navigation - Dark Mode -->
+    <color name="bottom_nav_background">#0D0D0D</color>
+    <color name="bottom_nav_selected">#00E5FF</color>
+    <color name="bottom_nav_unselected">#808080</color>
+    
+    <!-- Input Fields - Dark Mode -->
+    <color name="input_background">#1A1A1A</color>
+    <color name="input_stroke">#404040</color>
+    <color name="input_stroke_focused">#00E5FF</color>
+    <color name="input_text">#FFFFFF</color>
+    
+    <!-- Button Colors - Dark Mode -->
+    <color name="button_primary_bg">#FFFFFF</color>
+    <color name="button_primary_text">#000000</color>
+    <color name="button_secondary_bg">#262626</color>
+    <color name="button_secondary_text">#FFFFFF</color>
+    <color name="button_disabled_bg">#1A1A1A</color>
+    <color name="button_disabled_text">#606060</color>
+    
+    <!-- Calendar Colors - Dark Mode -->
+    <color name="calendar_today">#00E5FF</color>
+    <color name="calendar_selected">#00FFB3</color>
+    <color name="calendar_background">#0D0D0D</color>
+    <color name="calendar_text">#FFFFFF</color>
+    <color name="calendar_out_of_range">#404040</color>
+    
+    <!-- Status Bar & Navigation Bar -->
+    <color name="status_bar">#000000</color>
+    <color name="navigation_bar">#000000</color>
+    
+    <!-- Notification Badge -->
+    <color name="notification_badge">#FF5252</color>
+    <color name="notification_badge_text">#FFFFFF</color>
+    
+    <!-- Progress Bar -->
+    <color name="progress_primary">#00E5FF</color>
+    <color name="progress_background">#262626</color>
+    
+    <!-- Snackbar -->
+    <color name="snackbar_background">#333333</color>
+    <color name="snackbar_text">#FFFFFF</color>
+    <color name="snackbar_action">#00E5FF</color>
+    
+    <!-- Dialog -->
+    <color name="dialog_background">#1A1A1A</color>
+    <color name="dialog_title">#FFFFFF</color>
+    <color name="dialog_message">#B0B0B0</color>
+    
+    <!-- Floating Action Button -->
+    <color name="fab_background">#00E5FF</color>
+    <color name="fab_icon">#000000</color>
+    
+    <!-- List Item -->
+    <color name="list_item_background">#0D0D0D</color>
+    <color name="list_item_divider">#1A1A1A</color>
+    <color name="list_item_ripple">#26FFFFFF</color>
+    
+    <!-- Toolbar -->
+    <color name="toolbar_background">#0D0D0D</color>
+    <color name="toolbar_text">#FFFFFF</color>
+    <color name="toolbar_icon">#FFFFFF</color>
+</resources>
